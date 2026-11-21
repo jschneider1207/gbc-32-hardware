@@ -8,7 +8,10 @@ against it.
 
 > Status: seeded from the firmware's needs before any hardware decisions.
 > Requirement-level only; no pins assigned yet. Decided so far: ADR 0001
-> (ROM in external FMC SDRAM).
+> (ROM in external FMC SDRAM), and the MCU: STM32H735IGK6 (recorded in
+> `../gbc-32/README.md` Stage 3; its hardware ADR is not written yet).
+> Firmware constraint from that MCU: unaligned reads from the FMC region
+> are unsupported (ES0491 §2.7.3), so the ROM in SDRAM is read byte by byte.
 
 | Function | Firmware needs | Candidate STM32H7 peripheral | Notes |
 |---|---|---|---|

@@ -77,3 +77,22 @@ is the first hardware to run from SDRAM.
   - Confirm the SDRAM part against its datasheet and JLC stock.
   - Add the datasheets to `datasheets/`.
   - Update `docs/firmware-interface.md` (RAM row).
+
+## Update 2026-11-21 (verification note; the decision is unchanged)
+
+- **Unaligned reads, checked against the datasheets.** The "from memory"
+  note above is now settled for the chosen MCU, STM32H735IGK6. ES0491 rev 9
+  §2.7.3, "Unsupported read access with unaligned address" (FMC, status P =
+  partial workaround), says: "Read access with unaligned address, such as a
+  half-word read access starting at odd address, is not supported." The
+  workaround is to compile the code that accesses the FMC region so that
+  every access is aligned. The erratum doesn't depend on the MPU mapping,
+  so it applies even after the SDRAM is remapped as normal, cacheable
+  memory. In Rust the `strict-align` target feature is unstable (on 1.100
+  it warns and is slated to become an error, rust-lang/rust#162235). The
+  firmware therefore enforces byte reads of the ROM in code, which is a
+  task in `../gbc-32/docs/plan/stage-1.md`.
+- **Follow-up status.** The MCU part number and package are picked
+  (STM32H735IGK6, UFBGA176+25; recorded in `../gbc-32/README.md` Stage 3),
+  but there is no hardware ADR for it yet. The datasheets are in
+  `datasheets/` (DS13312, RM0468, ES0491).
