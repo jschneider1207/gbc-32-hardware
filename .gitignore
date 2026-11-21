@@ -1,0 +1,19 @@
+# Datasheets are kept locally (size, licensing); sources listed in datasheets/README.md
+/datasheets/*
+!/datasheets/README.md
+
+# KiCad
+*-backups/
+*.lck
+fp-info-cache
+*.kicad_prl
+_autosave-*
+~*
+
+# Fabrication outputs (regenerate from KiCad; archive releases separately)
+/kicad/**/fab/
+/kicad/**/gerbers/
+
+# Python
+__pycache__/
+.venv/
