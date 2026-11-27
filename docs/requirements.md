@@ -8,7 +8,7 @@ so far; everything marked **TBD** is open.
 - **Purpose:** standalone handheld that runs the Game Boy Color 32 emulator
   (`../gbc-32`) at full speed, with video, audio and input.
 - **Storage:** eMMC for game ROMs and save files. The active ROM is copied
-  into external SDRAM to run (`decisions/0001-external-sdram-for-rom.md`).
+  into external HyperRAM to run (`decisions/0003-hyperram-on-octospi-for-rom.md`).
 - **Audio:** dedicated audio DAC/amplifier driving onboard speaker(s).
 - **Build plan:** a prototype board (Stage 3) and then a refined board
   (Stage 4) that fixes what prototype bring-up uncovers.

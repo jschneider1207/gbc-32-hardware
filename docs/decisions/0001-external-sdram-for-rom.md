@@ -1,6 +1,6 @@
 # 0001: External FMC SDRAM holds the active ROM
 
-- Status: Accepted
+- Status: Superseded by ADR 0003 (2026-11-24) for the memory choice: the ROM is held in HyperRAM on OCTOSPI, not FMC SDRAM. The rest stands.
 - Date: 2026-11-21
 
 ## Context
